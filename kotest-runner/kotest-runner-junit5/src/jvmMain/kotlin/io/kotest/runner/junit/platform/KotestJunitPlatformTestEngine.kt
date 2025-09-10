@@ -144,9 +144,9 @@ class KotestJunitPlatformTestEngine : TestEngine {
     * other than kotest that is trying to run the tests, and we should skip running the engine.
     */
    private fun shouldRunTests(request: EngineDiscoveryRequest): Boolean {
-      if (request.getSelectorsByType(MethodSelector::class.java).isNotEmpty()) return false
       return request.getSelectorsByType(ClassSelector::class.java).isNotEmpty() ||
-         request.getSelectorsByType(UniqueIdSelector::class.java).isNotEmpty()
+         request.getSelectorsByType(UniqueIdSelector::class.java).isNotEmpty() ||
+         request.getSelectorsByType(MethodSelector::class.java).isNotEmpty()
    }
 
    /**
